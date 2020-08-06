@@ -1,7 +1,7 @@
 const net = require('net');
 const readline = require('readline');
 const IP = 'localhost';
-const PORT = 8080;
+const PORT = 4001;
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -17,8 +17,11 @@ conn.setEncoding('utf8');
 
 conn.on('connect', () => {
   console.log("Connected to server!");
+  rl.question('Which file would you like? ', answer => {
+    conn.write(answer);
+  });
 });
 
-conn.on('data' data => {
-  
+conn.on('data', data => {
+  console.log(data);
 });
