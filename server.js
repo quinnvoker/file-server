@@ -12,7 +12,7 @@ server.on('connection', client => {
   console.log('New client connected!');
   client.on('data', data => {
     const path = `./server-files/${data}`;
-    console.log(`Message from client: ${data}`);
+    console.log(`Client has requested: ${data}`);
     if (fs.existsSync(path)) {
       fs.readFile(path, 'utf8', (error, fileData) => {
         if (error) {
@@ -23,6 +23,5 @@ server.on('connection', client => {
         client.write(JSON.stringify(dataPack));
       });
     }
-    client.write('ok');
   });
 });
