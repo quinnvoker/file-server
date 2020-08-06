@@ -6,7 +6,7 @@ const PORT = 4001;
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-})
+});
 
 const conn = net.createConnection({
   host: IP,
